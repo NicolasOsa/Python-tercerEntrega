@@ -1,0 +1,15 @@
+<div>
+    {% extends "clinicaTandil/medicos/medicos.html" %}
+    {% load static %}
+
+    {% block setMedico %}
+        <p> Inscribir medico en plantilla</p> 
+        <form action="/clinicaTandil/setMedico/"    method="post"> {% csrf_token %}
+            <table>
+                {{ miFormulario.as_table }}
+            </table>
+            <input type = "submit" value="Enviar">
+        </form>
+
+    {% endblock %}
+</div>

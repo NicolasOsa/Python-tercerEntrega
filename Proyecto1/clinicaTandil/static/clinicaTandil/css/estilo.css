@@ -6,3 +6,8 @@
     margin-top: 100px !important;
     padding: 20px;
 }
+
+#tituloTablas{
+    background-color: rgb(34,34,34);
+    color: white;
+}

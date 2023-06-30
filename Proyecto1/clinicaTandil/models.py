@@ -5,8 +5,6 @@ class Medico(models.Model):
     nombre =models.CharField(max_length=40)
     apellido = models.CharField(max_length=30)
     especialidad = models.CharField(max_length=40)
-    turnoDia = models.DateField()
-    turnoHora = models.DateTimeField()
 
 class Paciente(models.Model):
     nombre =models.CharField(max_length=40)
@@ -17,3 +15,9 @@ class Paciente(models.Model):
 class Secretaria(models.Model):
     nombre =models.CharField(max_length=40)
     apellido = models.CharField(max_length=30)
+
+class Turno(models.Model):
+    turnoDia = models.DateField()
+    turnoHora = models.DateTimeField()
+    medico = models.CharField(max_length=40)
+    paciente = models.CharField(max_length=40)

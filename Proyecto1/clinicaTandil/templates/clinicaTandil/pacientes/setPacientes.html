@@ -1,0 +1,15 @@
+<div>
+    {% extends "clinicaTandil/pacientes/pacientes.html" %}
+    {% load static %}
+
+    {% block setPaciente %}
+        <p> Inscribir Paciente</p> 
+        <form action="/clinicaTandil/setPaciente/"    method="post"> {% csrf_token %}
+            <input placeholder="Nombre" type = "text" name="nombre" required>
+            <input placeholder="Apellido" type = "text" name="apellido" required>
+            <input placeholder="Email" type = "email" name="email" required>
+            <input type = "submit" value="Enviar">
+        </form>
+
+    {% endblock %}
+</div>

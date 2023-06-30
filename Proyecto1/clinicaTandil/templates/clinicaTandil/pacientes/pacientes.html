@@ -1,0 +1,31 @@
+<div>
+    {% extends "clinicaTandil/inicio.html" %}
+    {% load static %}
+    
+        {% block contenidoQueCambia %}
+            <p>Pacientes</p>
+            <table>
+                <tr id="tituloTablas">
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                </tr>
+                {% for paciente in Pacientes %}
+                    <tr>
+                        <td>{{paciente.nombre}}</td>
+                        <td>{{paciente.apellido}}</td>
+                        <td>{{paciente.email}}</td>
+                    </tr>
+                    <p>{{paciente}}</p>
+                {% endfor %}
+            </table>
+            <div class="formSetPaciente">
+                {% block setPaciente %}
+                {% endblock %}
+            </div>          
+            <div class="formGetPaciente">
+                {% block getPaciente %}
+                {% endblock %}
+            </div>          
+        {% endblock %}
+</div>
