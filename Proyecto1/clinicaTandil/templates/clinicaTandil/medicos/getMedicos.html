@@ -1,0 +1,21 @@
+<div>
+    {% extends "clinicaTandil/medicos/medicos.html" %}
+    {% load static %}
+
+    {% block getMedico %}
+        <p> Buscar medico en plantilla</p> 
+        <form action="/clinicaTandil/buscarMedico/" method="GET">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+            <input type="submit" value="Buscar">
+        </form>
+
+        {% if medicos %}
+            {% for medico in medicos %}
+                <li>{{medico.nombre}}</li>
+                <li>{{medico.apellido}}</li>
+                <li>{{medico.especialidad}}</li>
+            {% endfor %}
+        {% endif %}
+
+    {% endblock %}
+</div>

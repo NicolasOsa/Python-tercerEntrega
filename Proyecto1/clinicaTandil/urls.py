@@ -1,5 +1,6 @@
 from django.urls import path
-from clinicaTandil.views import inicio, medicos, pacientes, secretarias, setPacientes, setMedicos
+from django.contrib.auth.views import LogoutView
+from clinicaTandil.views import inicio, medicos, pacientes, secretarias, setPacientes, setMedicos, getMedico, eliminarMedico, editarMedico, loginClinica, registro
 
 urlpatterns = [
     path('inicio/', inicio, name="Inicio"),
@@ -8,4 +9,10 @@ urlpatterns = [
     path('secretaria/', secretarias, name="Secretarias"),
     path('setPaciente/', setPacientes, name="setPacientes"),
     path('setMedico/', setMedicos, name="setMedicos"),
+    path('getMedico/', getMedico, name="getMedico"),
+    path('eliminarMedico/<nombre_medico>', eliminarMedico, name="eliminarMedico"),
+    path('editarMedico/<nombre_medico>', editarMedico, name="editarMedico"),
+    path('login/', loginClinica, name="login"),
+    path('registro/', registro, name="registro"),
+    path('Logout/', LogoutView.as_view(template_name = 'clinicaTandil/login.html'), name="Logout"),
 ]

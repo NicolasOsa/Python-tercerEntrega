@@ -5,21 +5,25 @@
         {% block contenidoQueCambia %}
             <p>Plantilla de medicos</p>
             <table>
-                <tr id="tituloTablas">
+                <tr id="tituloTablaMedicos">
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Especialidad</th>
+                    <th>Eliminar</th>
+                    <th>Editar</th>
                 </tr>
                 {% for medico in Medicos %}
                     <tr>
                         <td>{{medico.nombre}}</td>
                         <td>{{medico.apellido}}</td>
-                        <td>{medico.especialidad}</td>
+                        <td>{{medico.especialidad}}</td>
+                        <td><button class="btn btn-danger btnEliminar"><a href="{% url 'eliminarMedico' medico.nombre %}">X</a></button></td>
+                        <td><button class="btn btn-warning btnEditar"><a href="{% url 'editarMedico' medico.nombre %}">Editar</a></button></td>
                     </tr>
-                    <p>{{medico}}</p>
+                    
                 {% endfor %}
             </table>
-          
+           
             <div class="formSetMedico">
                 {% block setMedico %}
                 {% endblock %}

@@ -1,0 +1,17 @@
+<div>
+   
+    {% load static %}
+
+    {% block setMedico %}
+    <div>
+        <h1>Editar medico</h1>
+        <form action=""    method="post"> {% csrf_token %}
+            <table>
+                {{ miFormulario.as_table }}
+            </table>
+            <input class="btn btn-primary" type = "submit" value="Enviar">
+        </form>
+    </div>
+
+    {% endblock %}
+</div>

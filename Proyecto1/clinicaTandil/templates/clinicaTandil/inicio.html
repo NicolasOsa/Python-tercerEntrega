@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'clinicaTandil/css/estilo.css'%}" rel="stylesheet"/>
     <link href="{% static 'clinicaTandil/css/bootstrap.min.css'%}" rel="stylesheet"/>
     <script src="{% static 'clinicaTandil/js/bootstrap.min.js'%}"></script>
+    <link href="{% static 'clinicaTandil/css/estilo.css'%}" rel="stylesheet"/>
     <title>Inicio|Clinica Tandil</title>
 </head>
 <body>
@@ -24,6 +24,7 @@
                     <li class="nav-item"><a class="nav-link navText" href="{% url 'Medicos' %}">Medicos</a></li>
                     <li class="nav-item"><a class="nav-link navText" href="{% url 'Pacientes' %}">Pacientes</a></li>
                     <li class="nav-item"><a class="nav-link navText" href="{% url 'Secretarias' %}">Secretarias</a></li>
+                    <li class="nav-item"><a class="nav-link navText" href="{% url 'Logout' %}">Logout</a></li>
                 </ul>
             </div>
         </div>

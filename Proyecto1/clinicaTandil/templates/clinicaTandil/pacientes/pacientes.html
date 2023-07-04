@@ -3,9 +3,9 @@
     {% load static %}
     
         {% block contenidoQueCambia %}
-            <p>Pacientes</p>
-            <table>
-                <tr id="tituloTablas">
+            <p>Pacientes de la clinica</p>
+            <table id="tableInfoPacientes">
+                <tr id="tituloTablaPacientes">
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Correo</th>
@@ -16,7 +16,7 @@
                         <td>{{paciente.apellido}}</td>
                         <td>{{paciente.email}}</td>
                     </tr>
-                    <p>{{paciente}}</p>
+                    
                 {% endfor %}
             </table>
             <div class="formSetPaciente">
