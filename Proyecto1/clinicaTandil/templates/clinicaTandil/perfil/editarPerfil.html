@@ -1,0 +1,10 @@
+<h2>Editar Perfil</h2>
+<h3>{{user.username}}</h3>
+
+<form method="POST"> {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Editar perfil">
+</form>
+<a href="/clinicaTandil/perfil/changePassword"> Cambiar contraseña</a>
