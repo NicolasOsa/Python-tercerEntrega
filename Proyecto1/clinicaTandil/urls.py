@@ -18,5 +18,5 @@ urlpatterns = [
     path('perfil/', perfilView, name="Perfil"),
     path('perfil/editarPerfil/', editarPerfil, name="editarPerfil"),
     path('perfil/changePassword/', changePassword, name="changePassword"),
-    path('perfil/Avatar/', editAvatar, name="editAvatar"),
+    path('perfil/changeAvatar/', editAvatar, name="editAvatar"),
 ]

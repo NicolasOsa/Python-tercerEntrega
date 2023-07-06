@@ -1,0 +1,14 @@
+{% extends "../inicio.html" %}
+{% load static %}
+
+{% block contenidoQueCambia %} 
+    <h2>Avatar</h2>
+    <h3>{{user.username}}</h3>
+    
+    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        <table>
+            {{ form.as_p }}
+        </table>
+        <input type="submit" value="Aceptar">
+    </form>
+{% endblock %}

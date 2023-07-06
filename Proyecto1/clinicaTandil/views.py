@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from clinicaTandil.models import Paciente,Medico
-from clinicaTandil.forms import formSetMedico, formSetPaciente, UserEditForm,ChangePasswordForm
+from clinicaTandil.models import Paciente,Medico, Avatar
+from clinicaTandil.forms import formSetMedico, formSetPaciente, UserEditForm,ChangePasswordForm, AvatarForm
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate,update_session_auth_hash
 from django.contrib.auth.decorators import login_required
@@ -12,7 +12,8 @@ from django.contrib.auth.models import User
 
 @login_required
 def inicio (request):
-    return render(request,"clinicaTandil/inicio.html")
+    avatar = getavatar(request)
+    return render(request,"clinicaTandil/inicio.html", {"avatar": avatar})
 
 @login_required
 def medicos (request):
@@ -155,5 +156,34 @@ def changePassword(request):
         return render(request, 'clinicaTandil/perfil/changePassword.html', {"form": form})
     
 
+
 def editAvatar(request):
-    pass
+    if request.method == 'POST':
+        form = AvatarForm(request.POST, request.FILES)
+        print(form)
+        print(form.is_valid())
+        if form.is_valid():
+            user = User.objects.get(username = request.user)
+            avatar = Avatar(user = user, image = form.cleaned_data['avatar'], id = request.user.id)
+            avatar.save()
+            avatar = Avatar.objects.filter(user = request.user.id)
+            try:
+                avatar = avatar[0].image.url
+            except:
+                avatar = None           
+            return render(request, "clinicaTandil/inicio.html", {'avatar': avatar})
+    else:
+        try:
+            avatar = Avatar.objects.filter(user = request.user.id)
+            form = AvatarForm()
+        except:
+            form = AvatarForm()
+    return render(request, "clinicaTandil/perfil/avatar.html", {'form': form})
+
+def getavatar(request):
+    avatar = Avatar.objects.filter(user = request.user.id)
+    try:
+        avatar = avatar[0].image.url
+    except:
+        avatar = None
+    return avatar
